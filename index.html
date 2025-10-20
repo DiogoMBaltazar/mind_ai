@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindAI - AI Consulting & Strategy for Enterprise Transformation</title>
+    <meta name="description" content="Leading AI consulting firm specializing in enterprise AI strategy, implementation, and digital transformation. Transform your business with intelligent solutions.">
+    <meta name="keywords" content="AI consulting, artificial intelligence consulting, AI strategy, machine learning consulting, enterprise AI, digital transformation, AI implementation">
+    <meta name="author" content="MindAI Consulting">
+    <meta property="og:title" content="MindAI - AI Consulting & Strategy for Enterprise Transformation">
+    <meta property="og:description" content="Leading AI consulting firm specializing in enterprise AI strategy, implementation, and digital transformation.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- Brain Synapse Effect Container -->
+    <div class="synapse-container" id="synapseContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="#" class="logo">
+                        <div class="brand-logo">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Hexagonal frame layers -->
+                                <g stroke="#e0e0e0" stroke-width="1.5" fill="none">
+                                    <!-- Outer hexagon -->
+                                    <polygon points="50,8 78,24 78,76 50,92 22,76 22,24" opacity="0.9"/>
+                                    <!-- Inner hexagon -->
+                                    <polygon points="50,12 74,26 74,74 50,88 26,74 26,26" opacity="0.7"/>
+                                    <!-- Innermost hexagon -->
+                                    <polygon points="50,16 70,28 70,72 50,84 30,72 30,28" opacity="0.5"/>
+                                </g>
+
+                                <!-- Brain shape outline - realistic brain contours -->
+                                <g stroke="#00e5ff" stroke-width="3.5" fill="none">
+                                    <!-- Left hemisphere - realistic brain shape -->
+                                    <path d="M22 50 Q22 32, 28 28 Q35 22, 42 26 Q48 30, 50 38 Q50 42, 48 48 Q46 54, 42 60 Q38 66, 32 68 Q26 66, 22 58 Q20 54, 22 50 Z"/>
+
+                                    <!-- Right hemisphere - realistic brain shape -->
+                                    <path d="M50 38 Q52 30, 58 26 Q65 22, 72 28 Q78 32, 78 50 Q80 54, 78 58 Q74 66, 68 68 Q62 66, 58 60 Q54 54, 52 48 Q50 42, 50 38 Z"/>
+
+                                    <!-- Central brain division -->
+                                    <path d="M50 28 L50 68"/>
+
+                                    <!-- Brain convolutions/folds -->
+                                    <path d="M26 42 Q32 40, 38 42" stroke-width="2.5" opacity="0.8"/>
+                                    <path d="M62 42 Q68 40, 74 42" stroke-width="2.5" opacity="0.8"/>
+                                    <path d="M28 56 Q34 54, 40 56" stroke-width="2.5" opacity="0.8"/>
+                                    <path d="M60 56 Q66 54, 72 56" stroke-width="2.5" opacity="0.8"/>
+                                </g>
+
+                                <!-- Circuit wiring - magenta/purple connections -->
+                                <g stroke="#e91e63" stroke-width="2.8" fill="none">
+                                    <!-- Horizontal circuit lines across brain -->
+                                    <path d="M24 45 L48 45"/>
+                                    <path d="M52 45 L76 45"/>
+
+                                    <!-- Vertical circuit connections -->
+                                    <path d="M32 32 L32 48"/>
+                                    <path d="M68 32 L68 48"/>
+                                    <path d="M40 52 L40 64"/>
+                                    <path d="M60 52 L60 64"/>
+
+                                    <!-- Curved circuit pathways -->
+                                    <path d="M28 52 Q50 38, 72 52"/>
+                                    <path d="M36 36 Q50 32, 64 36"/>
+                                    <path d="M36 60 Q50 56, 64 60"/>
+
+                                    <!-- Cross-brain connections -->
+                                    <path d="M24 50 L76 50"/>
+                                </g>
+
+                                <!-- Additional cyan circuit traces -->
+                                <g stroke="#00e5ff" stroke-width="2.2" fill="none">
+                                    <!-- Diagonal connections -->
+                                    <path d="M28 38 L38 32"/>
+                                    <path d="M62 32 L72 38"/>
+                                    <path d="M28 58 L38 64"/>
+                                    <path d="M62 64 L72 58"/>
+
+                                    <!-- Small connecting traces */
+                                    <path d="M42 38 L46 42"/>
+                                    <path d="M54 42 L58 38"/>
+                                    <path d="M42 54 L46 58"/>
+                                    <path d="M54 58 L58 54"/>
+                                </g>
+
+                                <!-- Circuit nodes and connection points - cyan -->
+                                <g fill="#00e5ff">
+                                    <!-- Main connection nodes -->
+                                    <circle cx="24" cy="45" r="3.5"/>
+                                    <circle cx="76" cy="45" r="3.5"/>
+                                    <circle cx="24" cy="50" r="2.5"/>
+                                    <circle cx="76" cy="50" r="2.5"/>
+
+                                    <!-- Secondary nodes -->
+                                    <circle cx="32" cy="32" r="2.8"/>
+                                    <circle cx="68" cy="32" r="2.8"/>
+                                    <circle cx="40" cy="64" r="2.8"/>
+                                    <circle cx="60" cy="64" r="2.8"/>
+
+                                    <!-- Small connection points -->
+                                    <circle cx="38" cy="42" r="2"/>
+                                    <circle cx="62" cy="42" r="2"/>
+                                    <circle cx="38" cy="56" r="2"/>
+                                    <circle cx="62" cy="56" r="2"/>
+                                </g>
+
+                                <!-- Circuit nodes - magenta/purple -->
+                                <g fill="#e91e63">
+                                    <!-- Central processing nodes -->
+                                    <circle cx="50" cy="45" r="3"/>
+                                    <circle cx="50" cy="50" r="2.5"/>
+
+                                    <!-- Left hemisphere nodes -->
+                                    <circle cx="32" cy="45" r="2.5"/>
+                                    <circle cx="40" cy="52" r="2.2"/>
+                                    <circle cx="28" cy="52" r="2"/>
+
+                                    <!-- Right hemisphere nodes -->
+                                    <circle cx="68" cy="45" r="2.5"/>
+                                    <circle cx="60" cy="52" r="2.2"/>
+                                    <circle cx="72" cy="52" r="2"/>
+
+                                    <!-- Top and bottom nodes -->
+                                    <circle cx="50" cy="36" r="2"/>
+                                    <circle cx="50" cy="60" r="2"/>
+                                </g>
+
+                                <!-- Micro circuit elements -->
+                                <g fill="#00e5ff" opacity="0.8">
+                                    <circle cx="34" cy="40" r="1.2"/>
+                                    <circle cx="66" cy="40" r="1.2"/>
+                                    <circle cx="34" cy="56" r="1.2"/>
+                                    <circle cx="66" cy="56" r="1.2"/>
+                                    <circle cx="46" cy="48" r="1"/>
+                                    <circle cx="54" cy="48" r="1"/>
+                                </g>
+
+                                <!-- Circuit board traces -->
+                                <g stroke="#e0e0e0" stroke-width="1.2" fill="none" opacity="0.6">
+                                    <!-- Corner circuit elements -->
+                                    <circle cx="26" cy="30" r="2.5"/>
+                                    <circle cx="74" cy="30" r="2.5"/>
+                                    <circle cx="26" cy="70" r="2.5"/>
+                                    <circle cx="74" cy="70" r="2.5"/>
+
+                                    <!-- Small circuit components -->
+                                    <rect x="30" y="34" width="6" height="4" rx="1"/>
+                                    <rect x="64" y="34" width="6" height="4" rx="1"/>
+                                    <rect x="30" y="62" width="6" height="4" rx="1"/>
+                                    <rect x="64" y="62" width="6" height="4" rx="1"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="brand-text">MindAI</span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#expertise" class="nav-link">Expertise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#case-studies" class="nav-link">Case Studies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link cta-button">Start Your AI Journey</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" id="typewriter-text"></h1>
+                <p class="hero-subtitle">Strategic AI consulting and implementation services that drive measurable business outcomes. From strategy to deployment, we guide your AI transformation journey.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+            <!-- AI Chatbot -->
+            <div class="ai-chatbot">
+                <div class="chatbot-container">
+                    <div class="chatbot-header">
+                        <div class="chatbot-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V19C3 20.1 3.9 21 5 21H11V19H5V3H13V9H21ZM14 15.5C14 14.1 15.1 13 16.5 13S19 14.1 19 15.5S17.9 18 16.5 18S14 16.9 14 15.5ZM16.5 20C18.4 20 20 18.4 20 16.5S18.4 13 16.5 13S13 14.6 13 16.5S14.6 20 16.5 20Z" fill="url(#brainGradient)"/>
+                                <defs>
+                                    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00e5ff"/>
+                                        <stop offset="100%" style="stop-color:#e91e63"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="chatbot-title">How can we help?</div>
+                    </div>
+                    <div class="chatbot-messages" id="chatbot-messages">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                Hi! I'm here to help you explore how MindAI can transform your enterprise with AI solutions. What would you like to know about our consulting services?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chatbot-input-container">
+                        <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Ask about our AI consulting services...">
+                        <button class="chatbot-send-btn" id="chatbot-send">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="technology">
+        <div class="container">
+            <h2 class="section-title">Our Consulting Services</h2>
+            <div class="tech-grid">
+                <div class="tech-card" data-tech="strategy">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11H15M9 15H15M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L19.7071 9.70711C19.8946 9.89464 20 10.149 20 10.4142V19C20 20.1046 19.1046 21 18 21H17ZM17 21V11H13V7H7V19H17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>AI Strategy & Roadmap</h3>
+                    <p>Comprehensive AI strategy development, use case identification, and implementation roadmaps tailored to your business objectives.</p>
+                </div>
+                <div class="tech-card" data-tech="implementation">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>AI Implementation</h3>
+                    <p>End-to-end AI solution development and deployment with proven methodologies and best practices.</p>
+                </div>
+                <div class="tech-card" data-tech="analytics">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 9L12 6L16 10L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 4H18V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Data & Analytics</h3>
+                    <p>Data strategy, infrastructure design, and advanced analytics to unlock the value of your data assets.</p>
+                </div>
+                <div class="tech-card" data-tech="transformation">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.5 2V6H17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21.5 6L18.5 9C17.5 10 15.5 10 14.5 9L10.5 5C9.5 4 7.5 4 6.5 5L3.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2.5 15V19H6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2.5 15L5.5 12C6.5 11 8.5 11 9.5 12L13.5 16C14.5 17 16.5 17 17.5 16L20.5 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Digital Transformation</h3>
+                    <p>Holistic digital transformation consulting with AI at the core of your business evolution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="services">
+        <div class="container">
+            <h2 class="section-title">Our AI Expertise</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Machine Learning & Deep Learning</h3>
+                    <p>Advanced ML/DL model development, training, and optimization for complex business problems and predictive analytics.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Generative AI & LLMs</h3>
+                    <p>Custom GPT implementations, fine-tuning, and enterprise-grade generative AI solutions for content and automation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Computer Vision & NLP</h3>
+                    <p>Intelligent document processing, image recognition, and natural language understanding for business automation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <h2 class="section-title">Client Success Stories</h2>
+            <div class="case-studies-grid">
+                <div class="case-study">
+                    <div class="case-image">
+                        <div class="case-visual">
+                            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="200" height="120" fill="url(#retailGradient)"/>
+                                <path d="M20 80L40 60L60 70L80 50L100 55L120 45L140 40L160 35L180 30" stroke="#00D4FF" stroke-width="3" fill="none"/>
+                                <circle cx="40" cy="60" r="4" fill="#00D4FF"/>
+                                <circle cx="80" cy="50" r="4" fill="#00D4FF"/>
+                                <circle cx="140" cy="40" r="4" fill="#00D4FF"/>
+                                <defs>
+                                    <linearGradient id="retailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#007AFF;stop-opacity:0.8"/>
+                                        <stop offset="100%" style="stop-color:#5856D6;stop-opacity:0.9"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <span class="case-category">Retail & E-commerce</span>
+                        <h3>AI-Powered Demand Forecasting</h3>
+                        <p>Implemented ML models that improved inventory accuracy by 35% and reduced stockouts by 50%, saving $12M annually.</p>
+                    </div>
+                </div>
+                <div class="case-study">
+                    <div class="case-image">
+                        <div class="case-visual">
+                            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="200" height="120" fill="url(#financeGradient)"/>
+                                <rect x="30" y="30" width="140" height="60" rx="8" stroke="#00D4FF" stroke-width="2" fill="none"/>
+                                <rect x="40" y="40" width="120" height="8" rx="4" fill="#00D4FF" opacity="0.7"/>
+                                <rect x="40" y="55" width="100" height="8" rx="4" fill="#00D4FF" opacity="0.5"/>
+                                <rect x="40" y="70" width="80" height="8" rx="4" fill="#00D4FF" opacity="0.3"/>
+                                <circle cx="160" cy="45" r="6" fill="#00D4FF"/>
+                                <defs>
+                                    <linearGradient id="financeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#5856D6;stop-opacity:0.8"/>
+                                        <stop offset="100%" style="stop-color:#007AFF;stop-opacity:0.9"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <span class="case-category">Financial Services</span>
+                        <h3>Intelligent Document Processing</h3>
+                        <p>Automated loan processing with 95% accuracy, reducing processing time from days to hours and cutting costs by 60%.</p>
+                    </div>
+                </div>
+                <div class="case-study">
+                    <div class="case-image">
+                        <div class="case-visual">
+                            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="200" height="120" fill="url(#healthGradient)"/>
+                                <path d="M100 20L110 40L130 35L120 55L140 60L120 75L130 95L110 90L100 110L90 90L70 95L80 75L60 60L80 55L70 35L90 40L100 20Z" stroke="#00D4FF" stroke-width="2" fill="none"/>
+                                <circle cx="100" cy="60" r="25" stroke="#00D4FF" stroke-width="2" fill="none" opacity="0.5"/>
+                                <circle cx="100" cy="60" r="15" stroke="#00D4FF" stroke-width="2" fill="none" opacity="0.7"/>
+                                <circle cx="100" cy="60" r="5" fill="#00D4FF"/>
+                                <defs>
+                                    <linearGradient id="healthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:0.8"/>
+                                        <stop offset="100%" style="stop-color:#007AFF;stop-opacity:0.9"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <span class="case-category">Healthcare</span>
+                        <h3>Predictive Patient Analytics</h3>
+                        <p>Developed early warning systems that reduced readmissions by 25% and improved patient outcomes across 50+ facilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="team">
+        <div class="container">
+            <h2 class="section-title">Why Choose MindAI</h2>
+            <div class="team-content">
+                <div class="team-text">
+                    <p>We are a team of AI experts, data scientists, and business strategists with deep industry experience.</p>
+                    <p>Our proven methodology combines technical excellence with business acumen to deliver measurable results.</p>
+                    <p>We partner with enterprises to navigate the complexities of AI adoption and drive sustainable transformation.</p>
+                    <div class="team-stats">
+                        <div class="team-stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">AI Consultants</span>
+                        </div>
+                        <div class="team-stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Industries Served</span>
+                        </div>
+                        <div class="team-stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Years Leading AI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-image">
+                    <div class="team-visual">
+                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="300" fill="url(#teamGradient)"/>
+                            <!-- Neural Network Visualization -->
+                            <g opacity="0.8">
+                                <!-- Input Layer -->
+                                <circle cx="50" cy="80" r="8" fill="#00D4FF"/>
+                                <circle cx="50" cy="120" r="8" fill="#00D4FF"/>
+                                <circle cx="50" cy="160" r="8" fill="#00D4FF"/>
+                                <circle cx="50" cy="200" r="8" fill="#00D4FF"/>
+
+                                <!-- Hidden Layer 1 -->
+                                <circle cx="150" cy="60" r="8" fill="#007AFF"/>
+                                <circle cx="150" cy="100" r="8" fill="#007AFF"/>
+                                <circle cx="150" cy="140" r="8" fill="#007AFF"/>
+                                <circle cx="150" cy="180" r="8" fill="#007AFF"/>
+                                <circle cx="150" cy="220" r="8" fill="#007AFF"/>
+
+                                <!-- Hidden Layer 2 -->
+                                <circle cx="250" cy="80" r="8" fill="#5856D6"/>
+                                <circle cx="250" cy="120" r="8" fill="#5856D6"/>
+                                <circle cx="250" cy="160" r="8" fill="#5856D6"/>
+                                <circle cx="250" cy="200" r="8" fill="#5856D6"/>
+
+                                <!-- Output Layer -->
+                                <circle cx="350" cy="120" r="8" fill="#00D4FF"/>
+                                <circle cx="350" cy="160" r="8" fill="#00D4FF"/>
+
+                                <!-- Connections -->
+                                <g stroke="#FFFFFF" stroke-width="1" opacity="0.3">
+                                    <line x1="58" y1="80" x2="142" y2="60"/>
+                                    <line x1="58" y1="80" x2="142" y2="100"/>
+                                    <line x1="58" y1="120" x2="142" y2="100"/>
+                                    <line x1="58" y1="120" x2="142" y2="140"/>
+                                    <line x1="58" y1="160" x2="142" y2="140"/>
+                                    <line x1="58" y1="160" x2="142" y2="180"/>
+                                    <line x1="58" y1="200" x2="142" y2="180"/>
+                                    <line x1="58" y1="200" x2="142" y2="220"/>
+
+                                    <line x1="158" y1="60" x2="242" y2="80"/>
+                                    <line x1="158" y1="100" x2="242" y2="120"/>
+                                    <line x1="158" y1="140" x2="242" y2="160"/>
+                                    <line x1="158" y1="180" x2="242" y2="200"/>
+
+                                    <line x1="258" y1="80" x2="342" y2="120"/>
+                                    <line x1="258" y1="120" x2="342" y2="120"/>
+                                    <line x1="258" y1="160" x2="342" y2="160"/>
+                                    <line x1="258" y1="200" x2="342" y2="160"/>
+                                </g>
+                            </g>
+
+                            <defs>
+                                <linearGradient id="teamGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1C1C1E;stop-opacity:1"/>
+                                    <stop offset="50%" style="stop-color:#007AFF;stop-opacity:0.2"/>
+                                    <stop offset="100%" style="stop-color:#5856D6;stop-opacity:0.3"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Business?</h2>
+            <p class="contact-subtitle">Let's discuss how AI can drive growth and efficiency in your organization. Schedule a free consultation with our experts.</p>
+            <div class="contact-buttons">
+                <a href="mailto:consulting@mindai.com" class="btn btn-primary">Get Free Consultation</a>
+                <a href="#" class="btn btn-secondary">Download AI Readiness Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MindAI Consulting</h3>
+                    <p>AI Strategy & Implementation for Enterprise Success</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">AI Strategy</a></li>
+                        <li><a href="#expertise">Implementation</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get In Touch</h4>
+                    <p>consulting@mindai.com</p>
+                    <p>+1 (555) AI-CONSULT</p>
+                    <p>Schedule a free consultation</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MindAI Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Typewriter Effect Script -->
+    <script>
+        // Simple typewriter effect - NO BLINKING OR CURSOR EFFECTS
+        function typeWriter() {
+            const text = "AI Consulting That Transforms Enterprises";
+            const element = document.getElementById('typewriter-text');
+            let i = 0;
+
+            // Completely disable any animations or transitions
+            element.style.animation = "none";
+            element.style.transition = "none";
+            element.style.opacity = "1";
+            element.style.textDecoration = "none";
+            element.style.border = "none";
+            element.style.outline = "none";
+            element.style.boxShadow = "none";
+
+            // Set initial empty state
+            element.textContent = "";
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent = text.substring(0, i + 1);
+                    i++;
+
+                    // Natural typing speed variation
+                    const char = text.charAt(i - 1);
+                    let speed = 80;
+                    if (char === ' ') speed = 120;
+                    if (char === ',' || char === '.') speed = 200;
+
+                    setTimeout(type, speed + Math.random() * 40);
+                } else {
+                    // Lock final text state - NO EFFECTS
+                    element.textContent = text;
+                    element.style.animation = "none";
+                    element.style.transition = "none";
+                }
+            }
+
+            // Start typing after a short delay
+            setTimeout(type, 800);
+        }
+
+        // Start typewriter effect when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
